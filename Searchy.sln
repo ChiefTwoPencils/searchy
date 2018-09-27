@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searchy", "Searchy\Searchy.csproj", "{F5EEA80D-4A24-4135-8A01-253FD7A1291A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5EEA80D-4A24-4135-8A01-253FD7A1291A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5EEA80D-4A24-4135-8A01-253FD7A1291A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5EEA80D-4A24-4135-8A01-253FD7A1291A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5EEA80D-4A24-4135-8A01-253FD7A1291A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D5899E8-85C1-4592-B4EF-0C1D6B96AC40}
+	EndGlobalSection
+EndGlobal
