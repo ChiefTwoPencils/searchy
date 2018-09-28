@@ -3,14 +3,13 @@
         .controller("queryController", qbc)
         .directive("queryBuilder", qb);
 
-    function qb() {
+    qb.inject = ['BUILDER_TEMPLATE_URL']
+    function qb(BUILDER_TEMPLATE_URL) {
         return {
             restrict: "E",
             controller: "queryController",
             controllerAs: "qc",
-            template: `<div class='query-builder'>
-                           <div ng-repeat='c in qc.criteria'>{{c}}</div>
-                       </div >`
+            templateUrl: BUILDER_TEMPLATE_URL
         };
     }
 
