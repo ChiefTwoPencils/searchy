@@ -15,6 +15,20 @@
 
     function qbc() {
         var self = this;
+        self.fields = [
+            "User name", "Email", "Date Created"
+        ];
+        self.operators = [
+            "=", "<>", "<", ">", "<=", ">="
+        ];
         self.criteria = [new Criterion()];
+        self.addCriterion = function () {
+            self.criteria.push(new Criterion());
+        };
+        self.removeCriterion = function (index) {
+            if (self.criteria.length != 1) {
+                self.criteria.splice(index, 1);
+            }
+        };
     }
 })();
