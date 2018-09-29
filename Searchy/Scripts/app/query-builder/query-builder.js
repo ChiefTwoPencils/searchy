@@ -25,11 +25,14 @@
         self.addCriterion = function () {
             self.criteria.push(new Criterion());
         };
-        self.removeCriterion = function (index) {
-            if (index < 0 || index >= criteria.length) {
+        self.removeCriterion = function (criterion) {
+            if (self.criteria.length === 1) {
                 return;
             }
-            self.criteria.splice(index, 1);
+            const index = self.criteria.indexOf(criterion);
+            index < 0
+                ? () => { /*noop*/ }
+                : self.criteria.splice(index, 1);
         };
     }
 })();

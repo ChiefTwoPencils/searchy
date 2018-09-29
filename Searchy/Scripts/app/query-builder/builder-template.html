@@ -1,7 +1,7 @@
 ﻿<div class='query-builder'>
     <div ng-repeat='c in qc.criteria'>
         <span ng-click="qc.addCriterion()">+</span>
-        <span ng-click="qc.removeCriterion()">X</span>
+        <span ng-click="qc.removeCriterion(c)">X</span>
         <input type="checkbox" ng-checked="{{c.selected}}" />
         <select ng-model="c.field">
             <option ng-repeat="f in qc.fields">{{f}}</option>
