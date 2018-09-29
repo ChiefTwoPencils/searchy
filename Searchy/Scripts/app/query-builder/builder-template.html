@@ -1,14 +1,20 @@
 ﻿<div class='query-builder'>
+    <button ng-if="qc.groupable" ng-click="qc.groupSelected()">
+        Group selected
+    </button>
     <div ng-repeat='c in qc.criteria'>
         <span ng-click="qc.addCriterion()">+</span>
         <span ng-click="qc.removeCriterion(c)">X</span>
-        <input type="checkbox" ng-checked="{{c.selected}}" />
+        <input type="checkbox" ng-model="c.selected" ng-change="qc.updateGroupable()" />
+        <select ng-if="qc.chainable(c)" ng-model="c.chain.type">
+            <option ng-repeat="option in c.chain.options">{{option}}</option>
+        </select>
         <select ng-model="c.field">
-            <option ng-repeat="f in qc.fields">{{f}}</option>
+            <option ng-repeat="field in qc.fields">{{field}}</option>
         </select>
         <select ng-model="c.operator">
-            <option ng-repeat="o in qc.operators">{{o}}</option>
+            <option ng-repeat="operator in qc.operators">{{operator}}</option>
         </select>
-        <input type="text" ng-model="c.value" />
+        <input type="text" ng-model="c.value.text" />
     </div>
 </div>
