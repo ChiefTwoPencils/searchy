@@ -3,7 +3,7 @@
         .controller("queryController", qbc)
         .directive("queryBuilder", qb);
 
-    qb.inject = ['BUILDER_TEMPLATE_URL']
+    qb.inject = ['BUILDER_TEMPLATE_URL'];
     function qb(BUILDER_TEMPLATE_URL) {
         return {
             restrict: "E",
@@ -19,16 +19,17 @@
             "User name", "Email", "Date Created"
         ];
         self.operators = [
-            "=", "<>", "<", ">", "<=", ">="
+            "=", "<>", "<", ">", "<=", ">=", "Contains", "Does Not Contain", "In", "Not In"
         ];
         self.criteria = [new Criterion()];
         self.addCriterion = function () {
             self.criteria.push(new Criterion());
         };
         self.removeCriterion = function (index) {
-            if (self.criteria.length != 1) {
-                self.criteria.splice(index, 1);
+            if (index < 0 || index >= criteria.length) {
+                return;
             }
+            self.criteria.splice(index, 1);
         };
     }
 })();
