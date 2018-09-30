@@ -2,9 +2,11 @@
     "use strict";
     angular.module("app")
         .controller("queryController", qbc)
+        .directive("criteria", qbCriteria)
+        .directive("criterion", qbCriterion)
         .directive("queryBuilder", qb);
 
-    qb.inject = ['BUILDER_TEMPLATE_URL'];
+    qb.inject = ["BUILDER_TEMPLATE_URL"];
     function qb(BUILDER_TEMPLATE_URL) {
         return {
             restrict: "E",
@@ -12,6 +14,22 @@
             controllerAs: "qc",
             templateUrl: BUILDER_TEMPLATE_URL
         };
+    }
+
+    qbCriterion.inject = ["CRITERION_TEMPLATE_URL"];
+    function qbCriterion(CRITERION_TEMPLATE_URL) {
+        return {
+            restrict: "E",
+            templateUrl: CRITERION_TEMPLATE_URL
+        }
+    }
+
+    qbCriteria.inject = ["CRITERIA_TEMPLATE_URL"];
+    function qbCriteria(CRITERIA_TEMPLATE_URL) {
+        return {
+            restrict: "E",
+            templateUrl: CRITERIA_TEMPLATE_URL
+        }
     }
 
     function qbc() {
@@ -37,10 +55,9 @@
             const first = group[group.length - 1];
             group.forEach(c => self.criteria.splice(c.index, 1));
             const criteria = new Criteria();
-            const reversedGroup = group.reverse();
-            criteria.group = reversedGroup;            
-            self.criteria.splice(first.index, 0, ...group.map(ci => ci.criterion));
-            uncheckGroup(self.criteria);
+            criteria.group = group.map(ci => ci.criterion).reverse();            
+            self.criteria.splice(first.index, 0, criteria);
+            uncheckGroup(criteria.group);
         };
 
         const getSelected = all => all
@@ -59,5 +76,7 @@
                     : self.criteria.splice(index, 1);
             }            
         };
+
+        self.isCriteria = criterion => criterion instanceof Criteria;
     }
 })();

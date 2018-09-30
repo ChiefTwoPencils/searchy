@@ -196,7 +196,9 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\query-builder\builder-template.html" />
-    <Content Include="Scripts\app\query-builder\criterion.js" />
+    <Content Include="Scripts\app\query-builder\criteria-template.html" />
+    <Content Include="Scripts\app\query-builder\criterion-template.html" />
+    <Content Include="Scripts\app\query-builder\searchy.js" />
     <Content Include="Scripts\app\query-builder\query-builder.js" />
     <Content Include="Scripts\app\query-builder\settings.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

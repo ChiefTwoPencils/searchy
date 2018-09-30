@@ -27,6 +27,11 @@
     margin: 0.5em;
 }
 
+.criteria {
+    display: flex;
+    background-color: lightgoldenrodyellow;
+}
+
 .operation {
 
 }
