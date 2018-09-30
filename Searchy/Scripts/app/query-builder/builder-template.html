@@ -1,20 +1,26 @@
-﻿<div class='query-builder'>
-    <button ng-if="qc.groupable" ng-click="qc.groupSelected()">
-        Group selected
-    </button>
-    <div ng-repeat='c in qc.criteria'>
-        <span ng-click="qc.addCriterion()"><i class="fa fa-plus"></i></span>
-        <span ng-click="qc.removeCriterion(c)"><i class="fa fa-times"></i></span>
-        <input type="checkbox" ng-model="c.selected" ng-change="qc.updateGroupable()" />
-        <select ng-if="qc.chainable(c)" ng-model="c.chain.type">
-            <option ng-repeat="option in c.chain.options">{{option}}</option>
-        </select>
-        <select ng-model="c.field">
-            <option ng-repeat="field in qc.fields">{{field}}</option>
-        </select>
-        <select ng-model="c.operator">
-            <option ng-repeat="operator in qc.operators">{{operator}}</option>
-        </select>
-        <input type="text" ng-model="c.value.text" />
+﻿<div>
+    <div class='query-builder'>
+        <button ng-disabled="!qc.groupable" ng-click="qc.groupSelected(); qc.updateGroupable()">
+            Group selected
+        </button>
+        <div class="criterion" ng-repeat='c in qc.criteria'>
+            <div class="operations">
+                <span class="item" ng-click="qc.addCriterion()"><i class="fa fa-plus adder"></i></span>
+                <span class="item" ng-click="qc.removeCriterion(c)"><i class="fa fa-times remover"></i></span>
+                <input class="item" type="checkbox" ng-model="c.selected" ng-change="qc.updateGroupable()" />
+            </div>
+            <div class="selections">
+                <select class="item" ng-if="qc.chainable(c)" ng-model="c.chain.type">
+                    <option ng-repeat="option in c.chain.options">{{option}}</option>
+                </select>
+                <select class="item" ng-model="c.field">
+                    <option ng-repeat="field in qc.fields">{{field}}</option>
+                </select>
+                <select class="item" ng-model="c.operator">
+                    <option ng-repeat="operator in qc.operators">{{operator}}</option>
+                </select>
+                <input class="criterion-value" type="text" ng-model="c.value.text" />
+            </div>
+        </div>
     </div>
 </div>

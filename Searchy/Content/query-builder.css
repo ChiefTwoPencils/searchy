@@ -1,0 +1,60 @@
+﻿.root {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 1em auto;
+}
+
+.query-builder {
+    width: 75%;
+    margin: 1em auto;
+}
+
+.criterion {
+    display: flex;
+}
+
+.criterion-value {
+    margin: 0.5em;
+}
+
+.operation {
+
+}
+
+.operations {
+    display: flex;
+    flex-grow: 1;
+}
+
+.selection {
+
+}
+
+.selections {
+    display: flex;
+    flex-grow:2;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.item {
+    margin: 0.5em;
+}
+
+.adder {
+    color: green;
+}
+
+.remover {
+    color: red;
+}
