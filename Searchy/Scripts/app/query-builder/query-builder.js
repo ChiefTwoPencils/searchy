@@ -1,4 +1,5 @@
 ﻿(function () {
+    "use strict";
     angular.module("app")
         .controller("queryController", qbc)
         .directive("queryBuilder", qb);
@@ -31,9 +32,7 @@
         self.updateGroupable = () => self.groupable = self.criteria.filter(c => c.selected).length > 1;
 
         self.groupSelected = () => {
-            const group = self.criteria
-                .map((c, i) => { return { criterion: c, index: i }; })
-                .filter(ci => ci.criterion.selected)
+            const group = getSelected(self.criteria)
                 .sort((a, b) => b.index - a.index);
             const first = group[group.length - 1];
             group.forEach(c => self.criteria.splice(c.index, 1));
@@ -42,8 +41,11 @@
             criteria.group = reversedGroup;            
             self.criteria.splice(first.index, 0, ...group.map(ci => ci.criterion));
             uncheckGroup(self.criteria);
-            //self.criteria.push(criteria);
         };
+
+        const getSelected = all => all
+            .map((c, i) => { return { criterion: c, index: i }; })
+            .filter(ci => ci.criterion.selected);
 
         const uncheckGroup = group => group.forEach(c => c.selected = false);
 

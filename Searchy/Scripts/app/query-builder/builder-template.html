@@ -3,8 +3,8 @@
         Group selected
     </button>
     <div ng-repeat='c in qc.criteria'>
-        <span ng-click="qc.addCriterion()">+</span>
-        <span ng-click="qc.removeCriterion(c)">X</span>
+        <span ng-click="qc.addCriterion()"><i class="fa fa-plus"></i></span>
+        <span ng-click="qc.removeCriterion(c)"><i class="fa fa-times"></i></span>
         <input type="checkbox" ng-model="c.selected" ng-change="qc.updateGroupable()" />
         <select ng-if="qc.chainable(c)" ng-model="c.chain.type">
             <option ng-repeat="option in c.chain.options">{{option}}</option>
