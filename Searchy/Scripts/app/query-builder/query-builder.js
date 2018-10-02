@@ -38,7 +38,9 @@
         self.groupable = false;
 
         self.fields = [
-            "User name", "Email", "Date Created"
+            new Field("User Name"),
+            new Field("Email"),
+            new Field("DateCreated")
         ];
         self.operators = [
             "=", "<>", "<", ">", "<=", ">=", "Contains", "Does Not Contain", "In", "Not In"

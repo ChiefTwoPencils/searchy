@@ -15,7 +15,7 @@
                         <option ng-repeat="option in c.chain.options">{{option}}</option>
                     </select>
                     <select class="item" ng-model="c.field">
-                        <option ng-repeat="field in qc.fields">{{field}}</option>
+                        <option ng-repeat="field in qc.fields">{{field.value}}</option>
                     </select>
                     <select class="item" ng-model="c.operator">
                         <option ng-repeat="operator in qc.operators">{{operator}}</option>

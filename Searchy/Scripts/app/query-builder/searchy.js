@@ -87,27 +87,27 @@ class AndOr extends Chain {
 class Operator {
     constructor(symbol, doop) {
         this.symbol = symbol ? symbol : "";
-        this.doop = doop ? doop : () => { }
+        this.doop = doop ? doop : Operators.Noop.doop;
     }
 }
 
 class FieldType {
-    constructor() {
-        this.dataType = Searchy.DataType.String;
-        this.supportedOps = [];
+    constructor(dataType, supportedOps) {
+        this.dataType = dataType ? dataType : Searchy.DataType.String;
+        this.supportedOps = supportedOps ? supportedOps : [];
     }
 }
 
 class Field {
-    constructor() {
-        this.value = "";
-        this.fieldType = new FieldType();
+    constructor(value, fieldType) {
+        this.value = value ? value : "";
+        this.fieldType = fieldType ? fieldType : new FieldType();
     }
 }
 
 class Value {
-    constructor() {
-        this.text = "";
+    constructor(text) {
+        this.text = text ? text : "";
     }
 }
 
