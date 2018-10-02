@@ -55,16 +55,16 @@ class Operators {
         return new Operator(">=", (a, b) => orEqual(a, b, GreaterThan));
     }
     orEqual(a, b, op) {
-        return Chains.Or.doop(a, b, op.doop, Equal.doop);
+        return Chains.Or.doop(() => op.doop(a, b), () => Equal.doop(a, b));
     }
 }
 
 class Chains {
     static get And() {
-        return new Chain("And", (a, b, f, g) => f(a, b) && g(a, b));
+        return new Chain("And", (f, g) => f() && g());
     }
     static get Or() {
-        return new Chain("Or", (a, b, f, g) => f(a, b) || g(a, b));
+        return new Chain("Or", (f, g) => f() || g());
     }
 }
 
