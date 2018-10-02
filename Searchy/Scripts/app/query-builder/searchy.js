@@ -1,13 +1,13 @@
 ﻿class Searchy {
     constructor() { }
     static get DataType() {
-        return new DataTypes();
+        return DataTypes;
     }
     static get Operators() {
-        return new Operators();
+        return Operators;
     }
     static get Chains() {
-        return new Chains();
+        return Chains;
     }
 };
 
@@ -55,7 +55,7 @@ class Operators {
         return new Operator(">=", (a, b) => orEqual(a, b, GreaterThan));
     }
     orEqual(a, b, op) {
-        return Chains.Or(a, b, op.doop, Equal);
+        return Chains.Or.doop(a, b, op.doop, Equal.doop);
     }
 }
 
@@ -71,7 +71,7 @@ class Chains {
 class Chain {
     constructor(type, doop) {
         this.type = type ? type : "";
-        this.doop = doop ? doop : Operators.Noop;
+        this.doop = doop ? doop : Operators.Noop.doop;
         this.options = [];
     }
 }
